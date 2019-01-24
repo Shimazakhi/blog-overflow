@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
+    /**
+     * Index
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function index(Request $request)
     {
         return Post::when($request->title, function($query) use ($request) {
@@ -34,6 +40,12 @@ class PostController extends Controller
         ->paginate($request->get('limit', 10));
     }
 
+    /**
+     * Show Post
+     *
+     * @param Post $post
+     * @return Post
+     */
     public function show(Post $post)
     {
         $post = $post->load(['category', 'comments.user', 'tags', 'user']);

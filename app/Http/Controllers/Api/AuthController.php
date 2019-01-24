@@ -8,8 +8,19 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class AuthController
+ *
+ * @package App\Http\Controllers\Api
+ */
 class AuthController extends Controller
 {
+    /**
+     * Get Access Token
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function getAccessToken(Request $request)
     {
         $this->validate($request, [
@@ -27,6 +38,12 @@ class AuthController extends Controller
         ])->setStatusCode(401);
     }
 
+    /**
+     * Password Reset Request
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function passwordResetRequest(Request $request)
     {
         $this->validate($request, [
@@ -50,6 +67,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Change Password
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function changePassword(Request $request)
     {
         $this->validate($request, [

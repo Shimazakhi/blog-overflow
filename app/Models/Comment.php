@@ -8,12 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    /**
+     * Fillables
+     *
+     * @var array
+     */
     protected $fillable = [
         'body',
         'user_id',
         'post_id'
     ];
 
+    /**
+     * Boot Method Override
+     *
+     */
     protected static function boot()
     {
         parent::boot();
@@ -25,11 +34,21 @@ class Comment extends Model
         });
     }
 
+    /**
+     * BelongsTo Post
+     *
+     * @return mixed
+     */
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
 
+    /**
+     * BelongsTo User
+     *
+     * @return mixed
+     */
     public function user()
     {
         return $this->belongsTo(User::class);

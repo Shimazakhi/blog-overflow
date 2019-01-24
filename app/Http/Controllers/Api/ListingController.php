@@ -10,6 +10,11 @@ use App\Http\Controllers\Controller;
 
 class ListingController extends Controller
 {
+    /**
+     * Tags
+     *
+     * @return mixed
+     */
     public function tags()
     {
         $tags = Tag::paginate(10);
@@ -17,6 +22,11 @@ class ListingController extends Controller
         return $tags;
     }
 
+    /**
+     * Categories
+     *
+     * @return mixed
+     */
     public function categories()
     {
         $categories = Category::paginate(10);
@@ -24,6 +34,11 @@ class ListingController extends Controller
         return $categories;
     }
 
+    /**
+     * Users
+     *
+     * @return mixed
+     */
     public function users()
     {
         $users = User::paginate(10);

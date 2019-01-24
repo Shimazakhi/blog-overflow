@@ -47,7 +47,8 @@ class PostController extends Controller
         $post = Post::create([
             'title'       => $request->title,
             'body'        => $request->body,
-            'category_id' => $request->category_id
+            'category_id' => $request->category_id,
+            'is_published' => true
         ]);
 
         $tagsId = collect($request->tags)->map(function($tag) {

@@ -84,6 +84,17 @@ class Post extends Model
     }
 
     /**
+     * HasOne Answer
+     *
+     * @return mixed
+     */
+    public function answer()
+    {
+        return $this->hasOne(Comment::class)->where('is_correct',true);
+    }
+
+
+    /**
      * If is published Scope
      *
      * @param $query

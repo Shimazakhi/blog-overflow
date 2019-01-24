@@ -34,6 +34,6 @@
 
             </div>
 
-        </dev>
-    </dev>
+        </div>
+    </div>
 @endsection

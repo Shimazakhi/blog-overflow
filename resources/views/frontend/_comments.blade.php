@@ -8,7 +8,9 @@
 
         <div class="panel-body">
             <p>{{ $comment->body }}</p>
-            @includeWhen(Auth::user()->id === $post->user->id, 'frontend._author-controls')
+            @if(Auth::user())
+                @includeWhen(Auth::user()->id === $post->user->id, 'frontend._author-controls')
+            @endif
         </div>
 
     </div>

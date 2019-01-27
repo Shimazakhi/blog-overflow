@@ -25,13 +25,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showStatsPage()
     {
-        $posts      = Post::count();
-        $comments   = Comment::count();
-        $tags       = Tag::count();
-        $categories = Category::count();
+        $posts      = request()->user()->posts()->count();
+        $comments   = request()->user()->comments()->count();
 
-        return view('home', get_defined_vars());
+        return view('frontend.stats', get_defined_vars());
     }
 }

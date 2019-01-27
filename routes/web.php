@@ -26,9 +26,11 @@
         Route::resource('/tags', 'TagController', ['except' => ['show']]);
         Route::resource('/comments', 'CommentController', ['only' => ['index', 'destroy']]);
         Route::resource('/users', 'UserController', ['middleware' => 'admin', 'only' => ['index', 'destroy']]);
+        Route::get('/stats', 'AdminController@showStatsPage')->name('admin.stats');
     });
 
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/stats', 'HomeController@showStatsPage')->name('user.stats');
         Route::post('/posts/{post}/comment', 'BlogController@comment');
         Route::post('posts/{post}/comments/{comment}/correct/set', 'BlogController@setCorrectAnswer')->name('post.comment.correct.set');
         Route::post('posts/{post}/comments/{comment}/correct/clear', 'BlogController@clearCorrectAnswer')->name('post.comment.correct.clear');
